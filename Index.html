@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ANTOLOVE | Heritage Meets Modern Silhouette</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FEFBF6;
+      color: #2C2822;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, .logo, .nav-links a, .hero-tagline, .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* HEADER / NAVIGATION */
+    header {
+      background: #FEFBF6;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+      background-color: rgba(254, 251, 246, 0.96);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      font-size: 1.9rem;
+      letter-spacing: 2px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #2C2822;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #2C2822;
+      transition: color 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .nav-links a:hover {
+      color: #A77B4D;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #2C2822;
+    }
+
+    /* buttons */
+    .btn-primary {
+      display: inline-block;
+      background-color: #2C2822;
+      color: #FEFBF6;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid #2C2822;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-primary:hover {
+      background-color: #A77B4D;
+      border-color: #A77B4D;
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #2C2822;
+      color: #2C2822;
+      padding: 10px 26px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: #2C2822;
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 0 5rem 0;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 3.6rem;
+      line-height: 1.2;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-content .heritage-line {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #A77B4D;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      margin: 1.5rem 0 2rem;
+      color: #4A453E;
+      max-width: 90%;
+    }
+
+    .hero-phone {
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: #6E5C48;
+    }
+
+    .hero-image {
+      flex: 1;
+      background: #E8E0D5;
+      height: 480px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* section headers */
+    .section-title {
+      font-size: 2.6rem;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #A77B4D;
+      margin-bottom: 2rem;
+    }
+
+    /* WORK GALLERY (two featured pieces) */
+    .featured-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 3rem 0 2rem;
+    }
+
+    .feature-card {
+      flex: 1;
+      min-width: 260px;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+
+    .card-img {
+      height: 380px;
+      background-color: #E2D9CE;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .feature-card:hover .card-img img {
+      scale: 1.02;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-category {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      color: #A77B4D;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      margin: 0.5rem 0;
+    }
+
+    /* Atelier two-column */
+    .atelier-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      margin: 3rem 0 4rem;
+    }
+
+    .atelier-text {
+      flex: 1;
+    }
+
+    .atelier-text p {
+      margin-bottom: 1.2rem;
+      color: #3E3A34;
+    }
+
+    .review-badge {
+      background: #F5F0EA;
+      padding: 1rem 1.5rem;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stars i {
+      color: #D4AF37;
+      margin-right: 3px;
+    }
+
+    .atelier-image {
+      flex: 1;
+      background: #D6CBBE;
+      border-radius: 24px;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .atelier-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* SERVICES cards */
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 3rem 0 2rem;
+    }
+
+    .service-card {
+      flex: 1;
+      min-width: 260px;
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.03);
+      border: 1px solid #F0EBE4;
+      transition: all 0.2s;
+    }
+
+    .service-card i {
+      font-size: 2.2rem;
+      color: #A77B4D;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card p {
+      color: #5C554B;
+      font-size: 0.95rem;
+    }
+
+    /* VISIT section */
+    .visit-wrapper {
+      background: #F3EFEA;
+      border-radius: 40px;
+      padding: 3rem 2.5rem;
+      margin: 4rem 0;
+    }
+
+    .visit-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .visit-info {
+      flex: 1;
+    }
+
+    .visit-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-detail {
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hours {
+      margin: 1rem 0;
+      border-top: 1px solid #DDD3C8;
+      padding-top: 1rem;
+    }
+
+    .map-placeholder {
+      flex: 1;
+      background: #DBCFB9;
+      border-radius: 28px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2C2822;
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #E8E0D7;
+      padding: 2.5rem 0;
+      text-align: center;
+      color: #6A6258;
+      font-size: 0.8rem;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        background: #FEFBF6;
+        width: 80%;
+        height: calc(100vh - 80px);
+        padding: 2rem;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.05);
+        transition: left 0.3s ease;
+        gap: 2rem;
+        z-index: 99;
+        align-items: flex-start;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .hero {
+        flex-direction: column;
+      }
+      .hero-content p {
+        max-width: 100%;
+      }
+      .hero-image {
+        width: 100%;
+        height: 360px;
+      }
+      .featured-grid, .services-grid {
+        flex-direction: column;
+      }
+      .visit-grid {
+        flex-direction: column;
+      }
+    }
+
+    img {
+      display: block;
+    }
+    /* placeholder helpers */
+    .img-placeholder-note {
+      font-style: italic;
+    }
+    a {
+      text-decoration: none;
+    }
+	.footer-social {
+  margin-top: 1rem;
+}
+.footer-social a {
+  color: #6A6258;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+.footer-social a:hover {
+  color: #A77B4D;
+}
+.footer-social i {
+  font-size: 1.2rem;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo"><a href="#">ANTOLOVE</a></div>
+        <button class="mobile-menu-btn" id="menuToggle" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="#the-work">THE WORK</a>
+          <a href="#atelier">ATELIER</a>
+          <a href="#services">SERVICES</a>
+          <a href="#visit">VISIT</a>
+          <a href="#contact" class="btn-outline" style="padding: 6px 18px;">BOOK</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <div class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="heritage-line">PRETORIA · EST. SOUTH AFRICA</div>
+          <h1>Where heritage meets the modern silhouette.</h1>
+          <p>Ceremonial and formal couture rooted in Tsonga, Zulu, Ndebele and Sotho craft – tailored for brides, families and occasions that matter.</p>
+          <a href="#visit" class="btn-primary">Book a consultation <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+          <div class="hero-phone"><i class="fas fa-phone-alt"></i> 082 259 0225  | Pretoria North Montana & GEZINA GALLERIES </div>
+        </div>
+        <div class="hero-image">
+          <!-- REPLACE with your hero image (bride/couture) -->
+          <img src="Photo Logo.jpeg" alt="Hero bride placeholder - replace with your image">
+        </div>
+      </div>
+    </div>
+
+    <!-- THE WORK section (featured pieces: Xibelani Bride & Shweshwe in Bloom) -->
+    <div class="container" id="the-work">
+      <div style="margin: 2rem 0 0.5rem;">
+        <span class="section-sub">Portfolio</span>
+        <h2 class="section-title">The Work</h2>
+      </div>
+      <div class="featured-grid">
+        <!-- Card 1: The Xibelani Bride -->
+        <div class="feature-card">
+          <div class="card-img">
+            <!-- REPLACE with Xibelani bride image -->
+            <img src="Photo 1.jpeg" alt="Xibelani bride ceremonial look">
+          </div>
+          <div class="card-content">
+            <div class="card-category">01 / CEREMONIAL</div>
+            <h3 class="card-title">The Xibelani Bride</h3>
+            <p>Traditional Xibelani pleating meets contemporary bridal elegance — a tribute to Tsonga heritage.</p>
+          </div>
+        </div>
+        <!-- Card 2: Shweslwve in Bloom -->
+        <div class="feature-card">
+          <div class="card-img">
+            <!-- REPLACE with Shweshwe couture image -->
+            <img src="Photo 2.jpeg" alt="Shweshwe in bloom dress">
+          </div>
+          <div class="card-content">
+            <div class="card-category">02 / SHWESHWE</div>
+            <h3 class="card-title">Shweshwe in Bloom</h3>
+            <p>Indigo & earth-toned shweshwe blossoms — modern silhouette, ancestral cloth.</p>
+          </div>
+        </div>
+        <!-- Card 3 extra: isicholo & family piece (optional but matches brand) -->
+        <div class="feature-card">
+          <div class="card-img">
+            <!-- REPLACE with family set or modern formalwear -->
+            <img src="Alter.jpeg" alt="coordinated family couture">
+          </div>
+          <div class="card-content">
+            <div class="card-category">03 / FAMILY SETS</div>
+            <h3 class="card-title">His, Hers</h3>
+            <p>Coordinated matrimonial photography looks — Zulu & modern formalwear.</p>
+          </div>
+        </div>
+				<!-- Card 4: Isicholo Modern -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with your isicholo / headpiece image -->
+		<img src="Photo 4.jpeg" alt="Matric Dance">
+		</div>
+		<div class="card-content">
+		<div class="card-category">04 / Evening Glam</div>
+		<h3 class="card-title">Matric Dance</h3>
+		<p>Made to stand out</p>
+		</div>
+		</div>
+
+		<!-- Card 5: Lobola Elegance -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with lobola / engagement attire image -->
+		<img src="Photo 5.jpeg" alt="Lobola traditional wedding ensemble">
+		</div>
+		<div class="card-content">
+		<div class="card-category">05 / Evening Glam</div>
+		<h3 class="card-title">Matric Dance</h3>
+		<p>Serving the body and blues.Royal Blue mermaid prom dress featuring a heavily embelished bodice.</p>
+		</div>
+		</div>
+
+		<!-- Card 6: Beaded Evening -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with beaded evening gown image -->
+		<img src="Photo 6.jpeg" alt="Beaded evening couture gown">
+		</div>
+		<div class="card-content">
+		<div class="card-category">06 / Evening Glam</div>
+		<h3 class="card-title">Matric Dance</h3>
+		<p>Unforgateble.Leaving a timestamp</p>
+		</div>
+		</div>
+		<!-- Card 7: Lobola Elegance -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with lobola / engagement attire image -->
+		<img src="Photo 7.jpeg" alt="Lobola traditional wedding ensemble">
+		</div>
+		<div class="card-content">
+		<div class="card-category">07 / Evening Glam</div>
+		<h3 class="card-title">Graduation</h3>
+		<p>Clasic tailoring meets Modern Grace.Chocolate brown blazer and matching skirt ,finished with a contrasting necktie.</p>
+		</div>
+		</div>
+		<!-- Card 8: Lobola Elegance -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with lobola / engagement attire image -->
+		<img src="Photo 8.jpeg" alt="Lobola traditional wedding ensemble">
+		</div>
+		<div class="card-content">
+		<div class="card-category">08 / LOBOLA</div>
+		<h3 class="card-title">Lobola Elegance</h3>
+		<p>Mordern Traditional Xhosa Wedding .Hand in hand, heart to heart ,rooted in tradition</p>
+		</div>
+		</div>
+		<!-- Card 9: Lobola Elegance -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with lobola / engagement attire image -->
+		<img src="Photo 9.jpeg" alt="Lobola traditional wedding ensemble">
+		</div>
+		<div class="card-content">
+		<div class="card-category">09 / Midnight Glam</div>
+		<h3 class="card-title">Suit and Tie</h3>
+		<p>Corporate Chic / Modern Tailored Power Dressing .A heavy emphasis on contemporary gender-fluid styling, school-uniform inspiration, and bold, contrasting color palettes.</p>
+		</div>
+		</div>
+		<!-- Card 10: Lobola Elegance -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with lobola / engagement attire image -->
+		<img src="Photo 10.jpeg" alt="Lobola traditional wedding ensemble">
+		</div>
+		<div class="card-content">
+		<div class="card-category">10 / LOBOLA</div>
+		<h3 class="card-title">Lobola Elegance</h3>
+		<p>fashion fades but culture and heritage forever.Celebrating tradition in a beautiful and morden way.wearing tradition like a crown</p>
+		</div>
+		</div>
+		<!-- Card 11: Lobola Elegance -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with lobola / engagement attire image -->
+		<img src="Photo 11.jpeg" alt="Lobola traditional wedding ensemble">
+		</div>
+		<div class="card-content">
+		<div class="card-category">11 / LOBOLA</div>
+		<h3 class="card-title">Lobola Elegance</h3>
+    <p>Rich shweshwe and pleated skirts for engagement ceremonies and family gatherings.</p>
+		</div>
+		</div>
+		<!-- Card 12: Lobola Elegance -->
+		<div class="feature-card">
+		<div class="card-img">
+		<!-- REPLACE with lobola / engagement attire image -->
+		<img src="Photo 12.jpeg" alt="Lobola traditional wedding ensemble">
+		</div>
+		<div class="card-content">
+		<div class="card-category">11 / LOBOLA</div>
+		<h3 class="card-title">Lobola Elegance</h3>
+    <p>Modern sepedi celebration wear.Rooted in tradition blooming grace .Pure Sepedi elegence</p>
+  </div>
+</div>
+</div>
+      </div>
+    </div>
+
+    <!-- ATELIER section + founding story & review -->
+    <div class="container" id="atelier">
+      <div class="atelier-wrap">
+        <div class="atelier-text">
+          <span class="section-sub">THE ATELIER</span>
+          <h2 class="section-title" style="margin-bottom: 1rem;">Cloth, colour, ceremony.</h2>
+          <p>Antolove was founded in Gezina, Pretoria to honour the wardrobes of South African celebration — the umembeso, lobola, the white wedding and the graduation. Each commission begins with a conversation about story, family and the cloth that carries them.</p>
+          <p>We work with Shweshwe, Xibelani pleating, isicholo forms, beading and contemporary formalwear — fitted to the body and the day.</p>
+          <div class="review-badge">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <strong>5.0 GOOGLE REVIEWS</strong>
+            <span style="color:#6E5C48;">— “Exceptional” Nazim Faruqi, Private Client</span>
+          </div>
+        </div>
+        <div class="atelier-image">
+          <!-- REPLACE with atelier workspace or fabric details -->
+          <img src="Photo 13.jpeg" alt="Antolove atelier, fabrics and tailoring" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES detailed -->
+    <div class="container" id="services">
+      <div style="text-align: center; margin: 2rem 0 0.5rem;">
+        <span class="section-sub">What we offer</span>
+        <h2 class="section-title">Services</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-feather-alt"></i>
+          <h3>Ceremonial Couture</h3>
+          <p>Tsonga, Zulu, Ndebele, Venda and Sotho inspired ensembles for umembeso, lobola and traditional weddings. Authentic craft, custom silhouettes.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-ring"></i>
+          <h3>Bridal & Evening</h3>
+          <p>White wedding gowns, beaded evening dresses and matching menswear — from first sketch to final fit. Heirloom quality.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-users"></i>
+          <h3>His, Hers & Family</h3>
+          <p>Coordinated family looks for matrimonial photography — printed dashikis, Shweshwe and modern formalwear. Perfect harmony.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISIT + APPOINTMENT section -->
+    <!-- VISIT + APPOINTMENT section with clickable map and address -->
+<div class="container" id="visit">
+  <div class="visit-wrapper">
+    <div class="visit-grid">
+      <div class="visit-info">
+        <h3>Visit the Atelier</h3>
+        <p style="margin: 0.5rem 0 1.2rem;">Book a fitting & experience the heritage.</p>
+        
+        <!-- Clickable address that opens Google Maps -->
+        <div class="contact-detail">
+          <i class="fas fa-map-marker-alt" style="font-size: 1.2rem; color: #A77B4D;"></i>
+          <a href="https://maps.app.goo.gl/StJKEcPdzZuxTAXJ7" target="_blank" rel="noopener noreferrer" style="color:#2C2822; text-decoration:none;">
+            <span>80 Silvergrass St, Montana AH, Pretoria, 0183, South Africa</span>
+          </a>
+        </div>
+
+        <div class="contact-detail">
+          <i class="fas fa-phone-alt" style="color: #A77B4D;"></i>
+          <span><a href="tel:0822590225" style="color:#2C2822;">082 259 0225</a></span>
+        </div>
+
+        <div class="contact-detail">
+          <i class="fas fa-envelope"></i>
+          <span><a href="mailto:hello@antolove.co.za" style="color:#2C2822;">hello@antolove.co.za</a></span>
+        </div>
+
+        <div class="hours">
+          <p><i class="far fa-clock"></i> <strong>Available by appointment</strong></p>
+          <p>Mon – Fri &nbsp; 08:30 – 17:30<br>
+          Saturday &nbsp; By Request<br>
+          Sunday &nbsp; Closed</p>
+          <a href="#" class="btn-primary" style="margin-top: 1rem; display: inline-block;">BOOK A FITTING →</a>
+        </div>
+      </div>
+
+      <!-- Clickable location image that opens Google Maps -->
+      <a href="https://maps.app.goo.gl/StJKEcPdzZuxTAXJ7" target="_blank" rel="noopener noreferrer" style="text-decoration: none; flex: 1;">
+        <div class="map-placeholder" style="cursor: pointer; background-image: url('https://placehold.co/600x400/E8D9CA/5C4E3E?text=📍+Click+to+open+in+Maps'); background-size: cover; background-position: center; border-radius: 28px; height: 240px; display: flex; align-items: center; justify-content: center;">
+          <div style="background: rgba(44,40,34,0.7); padding: 12px 20px; border-radius: 40px; color: white; font-weight: 500; backdrop-filter: blur(4px);">
+            <i class="fas fa-map-marker-alt"></i> View on Google Maps
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 ANTOLOVE FASHION DESIGN — PRETORIA, SOUTH AFRICA</p>
+      <p style="margin-top: 0.5rem; font-size: 0.75rem;">Ceremonial couture · Shweshwe · Xibelani · Isicholo · Modern heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+      // Close menu when clicking a link (optional)
+      const links = navLinks.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === "#" || targetId === "") return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // close mobile nav if open
+          if (navLinks.classList.contains('active')) navLinks.classList.remove('active');
+        }
+      });
+    });
+  </script>
+
+  <!-- 
+    ==============================================
+    IMAGE REPLACEMENT GUIDE:
+    ==============================================
+    HERO IMAGE: .hero-image img
+    FEATURE CARD 1 (Xibelani Bride): first .feature-card .card-img img
+    FEATURE CARD 2 (Shweshwe): second .feature-card .card-img img
+    FEATURE CARD 3 (Family set): third .feature-card .card-img img
+    ATELIER IMAGE: .atelier-image img
+
+    Recommended image sizes: 
+    - Hero: 800x1000px or landscape 1200x800
+    - Cards: 600x800px (portrait)
+    - Atelier: 800x1000px or 1000x800
+
+    You can replace any image URL with your own file path (e.g., "images/hero-bride.jpg").
+    The layout fully adapts to your images. 
+    ==============================================
+  -->
+</body>
+</html>
